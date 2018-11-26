@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
 import { withStyles } from '@material-ui/core/styles';
 
 import Divider from '@material-ui/core/Divider';
 
 import { Grid, Card, CardContent, CardActions, IconButton, Typography } from '@material-ui/core';
-
-import { Room as PinIcon } from '@material-ui/icons';
 
 import avatar from './philippe_dore_avatar.png';
 
@@ -55,8 +57,14 @@ const ProfileCard = ({ classes }) => (
       <CardActions className={classes.actions}>
         <Grid container justify="flex-end">
           <Grid item>
-            <IconButton aria-label="Add to favorites">
-              <PinIcon />
+            <IconButton aria-label="Facebook" onClick={() => window.location = 'https://www.facebook.com/doreWebDesign/'}>
+              <FontAwesomeIcon icon={faFacebook} />
+            </IconButton>
+            <IconButton aria-label="LinkedIn" onClick={() => window.location = 'https://www.linkedin.com/in/philippedore11/'}>
+              <FontAwesomeIcon icon={faLinkedin} />
+            </IconButton>
+            <IconButton aria-label="Send Email" onClick={() => window.location = 'mailto:philippe.dore.11@gmail.com'}>
+              <FontAwesomeIcon icon={faEnvelope} />
             </IconButton>
           </Grid>
         </Grid>
