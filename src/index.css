@@ -12,3 +12,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.vertical-timeline-element .vertical-timeline-element-content {
+  padding: 0;
+  background: none;
+  box-shadow: none;
+};
+
+.vertical-timeline-element .vertical-timeline-element-date {
+  font-size: 1rem;
+}

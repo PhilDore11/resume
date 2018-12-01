@@ -11,26 +11,28 @@ import Divider from '@material-ui/core/Divider';
 
 import { Grid, Card, CardContent, CardActions, IconButton, Typography } from '@material-ui/core';
 
+import { grey } from '@material-ui/core/colors';
+
 import avatar from './philippe_dore_avatar.png';
 
-const styles = (theme) => ({
+const styles = () => ({
   root: {
     position: 'relative',
-    top: 100,
+    top: 50,
   },
   media: {
     position: 'relative',
     display: 'block',
     margin: 'auto',
     borderRadius: '100%',
-    border: `1px solid ${theme.palette.divider}`,
+    border: `1px solid ${grey[500]}`,
     zIndex: 2,
   },
   card: {
     position: 'relative',
     top: -60,
     zIndex: 1,
-  }
+  },
 });
 
 const ProfileCard = ({ classes }) => (
@@ -43,13 +45,9 @@ const ProfileCard = ({ classes }) => (
     />
     <Card className={classes.card}>
       <CardContent>
-        <Typography gutterBottom variant="headline" component="h2">
-          Philippe Doré
-        </Typography>
-        <Typography gutterBottom variant="subheading" component="h2">
-          Senior Javascript Developer
-        </Typography>
-        <Typography component="p">
+        <Typography variant="h5" gutterBottom>Philippe Doré</Typography>
+        <Typography variant="h6" gutterBottom>Senior Javascript Developer</Typography>
+        <Typography variant="body1" component="span">
           Software Engineering graduate with in-depth knowledge and experience in agile software methodologies and UI/UX design and implementation. With my passion for UI/UX and my background in software design and implementation, I am well suited for customer facing roles.
         </Typography>
       </CardContent>

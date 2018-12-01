@@ -3,20 +3,33 @@ import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
 
-import { Grid, Divider } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
-import ProfileCard from 'components/ProfileCard';
+import { ProfileCard, SkillsCard, EmploymentCard } from 'components/index';
 
-import { blue } from '@material-ui/core/colors';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 
-const styles = (theme) => ({
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { blue, grey } from '@material-ui/core/colors';
+
+import employmentData from './employmentData';
+import EmploymentTask from '../../components/EmploymentTask';
+
+const styles = () => ({
   topArea: {
-    backgroundColor: blue[500],
-    height: 600,
+    backgroundColor: blue[400],
+    height: 550,
   },
   mainArea: {
-    backgroundColor: theme.palette.background.default,
-  }
+    backgroundColor: grey[300],
+    borderTop: `1px solid ${grey[500]}`,
+    paddingTop: 115,
+  },
+  taskContainer: {
+    padding: 10,
+  },
 });
 
 const HomeContainer = ({ classes }) => (
@@ -26,13 +39,42 @@ const HomeContainer = ({ classes }) => (
         <ProfileCard />
       </Grid>
     </Grid>
-    <Divider />
-    <Grid container spacing={24} justify="center" className={classes.mainArea}>
-      <Grid item>
-        Main Content
+    <Grid container className={classes.mainArea}>
+      <Grid item xs={12}>
+        <VerticalTimeline layout='one-column'>
+          {employmentData.map((item) => (
+            <VerticalTimelineElement
+              date={item.date}
+              iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+              icon={<FontAwesomeIcon icon={item.icon} size="lg" />}
+            >
+              <EmploymentCard title={item.company}>
+                {item.projects.map((project) => (
+                  <div>
+                    <Typography variant="h6" gutterBottom>{project.title}</Typography>
+                    <Typography variant="body1" component="span" gutterBottom>{project.description}</Typography>
+                    <Grid container spacing={24} justify='center' className={classes.taskContainer}>
+                      {project.tasks.map((task) => (
+                        <Grid item xs={3}>
+                          <EmploymentTask task={task} />
+                        </Grid>
+                      ))}
+                    </Grid>
+                  </div>
+                ))}
+              </EmploymentCard>
+            </VerticalTimelineElement>
+          ))}
+        </VerticalTimeline>
+      </Grid >
+      <Grid item xs={6}>
+        <SkillsCard />
       </Grid>
-    </Grid>
-  </div>
+      <Grid item xs={6}>
+        <SkillsCard />
+      </Grid>
+    </Grid >
+  </div >
 );
 
 HomeContainer.propTypes = {

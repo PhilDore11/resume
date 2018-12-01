@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import iconLibrary from './iconLibrary';
 
 ReactDOM.render(
-    <App />
+  <App />
   , document.getElementById('root'));
 
 iconLibrary.init();
