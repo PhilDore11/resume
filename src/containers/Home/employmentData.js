@@ -26,7 +26,7 @@ export default [{
     }],
   }, {
     title: 'Victory Air',
-    description: 'Design and build an automated solution to replace the current annual manual Crew Schedule and Vacation Bidding Process by developing a web-based software solution to automate this process using the existing business rules and requirements set out by Jazz Technical Services',
+    description: 'Design and build a web application to schedule flights, enable crew members to see their flights (crew pad) and allow customers to manage the passengers for their flights (Credentialing)',
     tasks: [{
       icon: faCalendar,
       description: 'Lead frontend team in daily scums and weekly sprint planning meetings'

@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { Grid, Typography } from '@material-ui/core';
 
-import { ProfileCard, SkillsCard, EmploymentCard } from 'components/index';
+import { ProfileCard, EmploymentCard, EmploymentTask } from 'components/index';
 
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
@@ -15,7 +15,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { blue, grey } from '@material-ui/core/colors';
 
 import employmentData from './employmentData';
-import EmploymentTask from '../../components/EmploymentTask';
 
 const styles = () => ({
   topArea: {
@@ -67,12 +66,6 @@ const HomeContainer = ({ classes }) => (
           ))}
         </VerticalTimeline>
       </Grid >
-      <Grid item xs={6}>
-        <SkillsCard />
-      </Grid>
-      <Grid item xs={6}>
-        <SkillsCard />
-      </Grid>
     </Grid >
   </div >
 );
